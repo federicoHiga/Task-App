@@ -108,6 +108,23 @@ const completeTask = (event)=>{//marca y desmarca en azul el check square
     element.classList.toggle("far");
 }
 
+//8// function para hacer dinamico el icon de eliminar
+
+//aca se genera
+const deleteIcon = ()=>{
+    const i = document.createElement("i");
+    i.classList.add("fas","fa-trash-alt","trashIcon","icon");
+    i.addEventListener("click", deleteTask);
+    return i;
+};
+
+//aca la funcion q elimina propiamente
+
+const deleteTask = (event)=>{
+    const parent = event.target.parentElement;//se camptura al padre, el div, elemento, ul, lo q sea q lo este conteniendo
+    parent.remove();//eliminar
+};
+
 //7// IIFE para q el usuario no tenga acceso desde el navegador a las functions, ya q las mismas estan siendo declaradas mediatne "const" de scoop global lo q se hace es abarcar todo el codigo en una arrow function quedadno limitado en una funcion quedando todo en un scoop regional.
 //es importante invocar al IIFE inmediatamente despues de cerrar
 
